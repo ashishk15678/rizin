@@ -11,8 +11,13 @@
 .Op Fl f/t Ar from/to
 .Op Fl  Ar [e|s|w|S|I] str
 .Op Fl x Ar hex
+<<<<<<< Updated upstream
 .Ar file|dir
 .Op Ar file|dir ...
+=======
+.Op Fl R Ar cmd
+.Op Fl  Ar |file|dir ..
+>>>>>>> Stashed changes
 .Sh DESCRIPTION
 This command is part of the Rizin project.
 .Pp
@@ -37,6 +42,8 @@ Set block size
 Search for regex matches (can be used multiple times)
 .It Fl E Ar cmd
 Execute command for each file found
+.It Fl R Ar cmd
+Execute rizin command for each search hit (seeks to the hit address before running the command)
 .It Fl f Ar from
 Start searching from address 'from'
 .It Fl F Ar file
