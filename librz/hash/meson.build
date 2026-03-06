@@ -129,7 +129,8 @@ rz_hash_sources = [
   'algorithms/fletcher/fletcher.c',
   'algorithms/ssdeep/ssdeep.c',
   'algorithms/md2/md2.c',
-  'algorithms/sha3/sha3.c'
+  'algorithms/sha3/sha3.c',
+  'algorithms/murmur3/murmur3.c',
 ]
 
 dependencies = [mth, rz_util_dep, xxhash_dep, blake3_dep]
