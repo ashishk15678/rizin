@@ -162,7 +162,6 @@ else
     'algorithms/sha1/sha1.c',
     'algorithms/sha2/sha2.c',
     'algorithms/sm3/sm3.c',
-    'algorithms/sha3/sha3.c'
   ]
 endif
 

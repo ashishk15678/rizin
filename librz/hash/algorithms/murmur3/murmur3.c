@@ -10,6 +10,7 @@
 // non-native version will be less than optimal.
 
 #include "murmur3.h"
+#include "rz_endian.h"
 #include <string.h>
 
 static FORCE_INLINE uint32_t rotl32(uint32_t x, int8_t r) {
@@ -58,10 +59,10 @@ void MurmurHash3_x86_32(const void *key, int len, size_t seed, void *out) {
 	const int nblocks = len / 4;
 	int i;
 
-	size_t h1 = seed;
+	uint32_t h1 = seed;
 
-	size_t c1 = 0xcc9e2d51;
-	size_t c2 = 0x1b873593;
+	uint32_t c1 = 0xcc9e2d51;
+	uint32_t c2 = 0x1b873593;
 
 	//----------
 	// body
@@ -288,16 +289,16 @@ void MurmurHash3_x86_128(const void *key, const int len, size_t seed, void *out)
 
 //-----------------------------------------------------------------------------
 
-void MurmurHash3_x64_128(const void *key, const int len, const size_t seed, void *out) {
+void MurmurHash3_x64_128(const void *key, const int len, const uint64_t seed, void *out) {
 	const uint8_t *data = (const uint8_t *)key;
 	const int nblocks = len / 16;
 	int i;
 
-	size_t h1 = seed;
-	size_t h2 = seed;
+	uint64_t h1 = seed;
+	uint64_t h2 = seed;
 
-	size_t c1 = BIG_CONSTANT(0x87c37b91114253d5);
-	size_t c2 = BIG_CONSTANT(0x4cf5ad432745937f);
+	uint64_t c1 = BIG_CONSTANT(0x87c37b91114253d5);
+	uint64_t c2 = BIG_CONSTANT(0x4cf5ad432745937f);
 
 	//----------
 	// body
