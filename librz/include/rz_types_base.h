@@ -231,7 +231,6 @@ typedef struct _utX {
 #define RZ_STR_DEF(s) RZ_STR(s)
 #define RZ_STR(s)     #s
 
-
 #ifdef __GNUC__
 #define FORCE_INLINE __attribute__((always_inline)) inline
 #else
@@ -243,6 +242,5 @@ typedef struct _utX {
 #define ROTL64_Murmur3(x, y) rotl64(x, y)
 
 #define BIG_CONSTANT(x) (x##LLU)
-
 
 #endif // RZ_TYPES_BASE_H

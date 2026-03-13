@@ -12,7 +12,6 @@
 #include "murmur3.h"
 #include <string.h>
 
-
 static FORCE_INLINE uint32_t rotl32(uint32_t x, int8_t r) {
 	return (x << r) | (x >> (32 - r));
 }
@@ -20,7 +19,6 @@ static FORCE_INLINE uint32_t rotl32(uint32_t x, int8_t r) {
 static FORCE_INLINE uint64_t rotl64(uint64_t x, int8_t r) {
 	return (x << r) | (x >> (64 - r));
 }
-
 
 //-----------------------------------------------------------------------------
 // Block read - if your platform needs to do endian-swapping or can only
