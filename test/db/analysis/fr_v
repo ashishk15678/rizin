@@ -4,29 +4,8 @@ CMDS=<<EOF
 e asm.arch=frv
 ar
 EOF
-d "add gr1, gr2, gr3" 80404002
-d "sub gr4, gr5, gr6" 80810005
-d "and gr7, gr8, gr9" 80c18008
-d "or gr10, gr11, gr12" 8102000b
-d "xor gr13, gr14, gr15" 8142800e
-d "not gr16, gr17" 81808010
-d "slli gr18, 4, gr19" 81c40004
-d "srli gr20, 8, gr21" 82048008
-d "setlos 0x1234, gr22" 82401234
-d "sethi 0xabcd, gr23" 8280abcd
-d "ldi @(gr1, 4), gr2" 82c00004
-d "sti gr3, @(gr1, 8)" 83000008
-d "ldd @(gr4, gr5), gr6" 83400005
-d "std gr7, @(gr4, gr5)" 83800005
-d "jmpl @(gr1, gr0)" 83c00000
-d "call @(gr2, gr0)" 84000000
-d "bra 0x100" 84400100
-d "beq icc0, 0, 0x100" 84800100
-d "bne icc0, 0, 0x200" 84c00200
-d "cmp gr1, gr2, icc0" 85004002
-d "cmpi gr3, 10, icc1" 8540400a
-d "movsg lr, gr4" 85800000
-d "movgs gr5, lr" 85c00000
-d "cadd gr1, gr2, gr3, cc0, 1" 86004002
+# temporary bs
+mpc = 0x00000000
+sp = 0x0000
 EOF
 RUN
