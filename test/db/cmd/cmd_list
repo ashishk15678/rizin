@@ -728,7 +728,7 @@ _dA__ 32         cris        GPL3    Axis Communications 32-bit embedded process
 adA__ 32 64      dalvik      LGPL3   Dalvik (Android VM) bytecode disassembler
 ad___ 16         dcpu16      PD      Mojang's DCPU-16 disassembler
 _dA__ 32 64      ebc         LGPL3   EFI bytecode disassembler (by Fedor Sakharov)
-+_d___ 32         frv         LGPL-3  Fujitsu FR-V RISC-VLIW disassembler (by contributors) v0.1.0
+_d___ 32         frv         LGPL-3  Fujitsu FR-V RISC-VLIW disassembler (by contributors) v0.1.0
 adAeI 16         gb          LGPL3   GameBoy(TM) (z80-like) (by condret)
 _dAeI 16         h8300       LGPL3   Hitachi/Renesas H8/300 disassembly plugin
 _dA__ 16         h8500       LGPL3   Hitachi/Renesas H8/500 disassembler (by billow)
@@ -799,7 +799,7 @@ _dA__ 32       cris      GPL3            pancake         Axis Communications 32-
 adA__ 32 64    dalvik    LGPL3                           Dalvik (Android VM) bytecode disassembler
 ad___ 16       dcpu16    PD                              Mojang's DCPU-16 disassembler
 _dA__ 32 64    ebc       LGPL3           Fedor Sakharov  EFI bytecode disassembler
-+_d___ 32       frv       LGPL-3  0.1.0   contributors    Fujitsu FR-V RISC-VLIW disassembler
+_d___ 32       frv       LGPL-3  0.1.0   contributors    Fujitsu FR-V RISC-VLIW disassembler
 adAeI 16       gb        LGPL3           condret         GameBoy(TM) (z80-like)
 _dAeI 16       h8300     LGPL3                           Hitachi/Renesas H8/300 disassembly plugin
 _dA__ 16       h8500     LGPL3           billow          Hitachi/Renesas H8/500 disassembler
