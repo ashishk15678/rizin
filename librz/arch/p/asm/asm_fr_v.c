@@ -9,7 +9,8 @@
 
 static int disassemble(const RzAsm *a, RzAsmOp *asm_op, const ut8 *buf, int len) {
 	FRVOp op = { 0 };
-	if (!a) return 0;
+	if (!a)
+		return 0;
 	if (frv_disassemble(&op, buf, len, rz_asm_get_pc(a)) != 0) {
 		rz_asm_op_set_asm(asm_op, "invalid");
 		asm_op->size = FRV_INSN_SIZE;
