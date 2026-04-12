@@ -1,3 +1,9 @@
+NAME=fr_v
+FILE=
+CMDS=<<EOF
+e asm.arch=frv
+ar
+EOF
 d "add gr1, gr2, gr3" 80404002
 d "sub gr4, gr5, gr6" 80810005
 d "and gr7, gr8, gr9" 80c18008
@@ -22,3 +28,5 @@ d "cmpi gr3, 10, icc1" 8540400a
 d "movsg lr, gr4" 85800000
 d "movgs gr5, lr" 85c00000
 d "cadd gr1, gr2, gr3, cc0, 1" 86004002
+EOF
+RUN
