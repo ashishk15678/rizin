@@ -1,0 +1,29 @@
+d "IDE_BOL 0xaa" 00aa
+d "Push [FC0D134]" 01
+
+d "PushArg 0x1234" 043412
+d "PushPtr 0x1234" 053412
+d "Push [SR]+0x1234" 063412
+d "Push [0x1111]+0x2222" 0711112222
+d "[SR]=[0x1234]" 083412
+
+d "Call 0x1111 ; chkstack 0x2222" 0a11112222
+d "CallPushEAX 0x1111 ; chkstack 0x2222" 0b11112222
+
+d "EndProc" 14
+d "ExitProc" 16
+d "ExitEngineGroup" 17
+
+d "PushPtr 0x1234" 1b3412
+d "IfZ +0x0008" 1c0800
+d "IfNZ +0x0009" 1d0900
+d "Jmp +0x000a" 1e0a00
+
+d "PushVarError 0x80020004 ; LitI2_Byte 10" 270a
+d "PushVarInteger 0x1234" 283412
+
+d "VarOp 0x32 nbytes=4" 32040011223344
+
+d "vbaStrCat" 2a
+
+d "db 0xff" ff
