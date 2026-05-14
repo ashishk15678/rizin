@@ -11,13 +11,13 @@ bool test_histogram_horizontal(void) {
 	opts.unicode = false;
 	opts.ruler = true;
 
-	ut8 data[] = { 50, 200 };
-	RzStrBuf *buf = rz_histogram_horizontal(&opts, data, 2, 2);
+	ut8 data[] = { 0, 50, 200 };
+	RzStrBuf *buf = rz_histogram_horizontal(&opts, data, 3, 2);
 
 	char *res = rz_strbuf_drain(buf);
 	mu_assert_notnull(res, "Histogram buffer should not be null");
-	mu_assert_true(strstr(res, "255|") != NULL, "Ruler 255 present");
-	mu_assert_true(strstr(res, "128|") != NULL, "Ruler 128 present");
+	mu_assert_true(strstr(res, "200|") != NULL, "Ruler 200 present");
+	mu_assert_true(strstr(res, "  0|") != NULL, "Ruler 0 present");
 	mu_assert_true(strstr(res, "_") != NULL, "Base line present");
 	free(res);
 	rz_cons_free();

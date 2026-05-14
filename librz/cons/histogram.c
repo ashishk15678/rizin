@@ -48,42 +48,34 @@ RZ_API RZ_OWN RzStrBuf *rz_histogram_horizontal(RZ_NONNULL RzHistogramOptions *o
 		kol[2] = opts->pal->cjmp;
 		kol[3] = opts->pal->mov;
 		kol[4] = opts->pal->nop;
-		for (i = 0; i < rows; i++) {
-			size_t threshold = i * (0xff / rows);
-			size_t koli = i * 5 / rows;
-			if (opts->ruler) {
-				rz_strbuf_appendf(buf, " %3zu%s", (255 - threshold), vline);
-			}
-			for (j = 0; j < cols; j++) {
-				int realJ = j * width / cols;
-				if (255 - data[realJ] < threshold || (i + 1 == rows)) {
+	}
+	int max_val = 0, min_val = 255;
+	for (int i = 0; i < width; i++) {
+		if (data[i] > max_val)
+			max_val = data[i];
+		if (data[i] < min_val)
+			min_val = data[i];
+	}
+
+	for (i = 0; i < rows; i++) {
+		size_t val = (rows > 1) ? (max_val - i * (max_val - min_val) / (rows - 1)) : max_val;
+		size_t koli = i * 5 / rows;
+		if (opts->ruler) {
+			rz_strbuf_appendf(buf, " %3zu%s", val, vline);
+		}
+		for (j = 0; j < cols; j++) {
+			size_t realJ = width > 0 ? (j * width / cols) : 0;
+			ut8 d = width > 0 ? data[realJ] : 0;
+			if (d >= val && d > 0) {
+				if (opts->color) {
 					if (opts->thinline) {
 						rz_strbuf_appendf(buf, "%s%s%s", kol[koli], vline, Color_RESET);
 					} else {
 						rz_strbuf_appendf(buf, "%s%s%s", kol[koli], block, Color_RESET);
 					}
 				} else {
-					rz_strbuf_append(buf, " ");
-				}
-			}
-			rz_strbuf_append(buf, "\n");
-		}
-		return buf;
-	}
-
-	for (i = 0; i < rows; i++) {
-		size_t threshold = i * (0xff / rows);
-		if (opts->ruler) {
-			rz_strbuf_appendf(buf, " %3zu%s", (255 - threshold), vline);
-		}
-		for (j = 0; j < cols; j++) {
-			size_t realJ = j * width / cols;
-			if (255 - data[realJ] < threshold) {
-				if (opts->thinline) {
-					rz_strbuf_append(buf, vline);
-				} else {
-					if (opts->color) {
-						rz_strbuf_appendf(buf, "%s%s%s", Color_BGGRAY, block, Color_RESET);
+					if (opts->thinline) {
+						rz_strbuf_append(buf, vline);
 					} else {
 						rz_strbuf_append(buf, block);
 					}
