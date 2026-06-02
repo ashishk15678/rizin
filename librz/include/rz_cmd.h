@@ -127,6 +127,7 @@ typedef struct rz_cmd_state_output_t {
 		RzTable *t;
 		RzStrBuf *sbuf;
 	} d;
+	RzTableView *table_view;
 } RzCmdStateOutput;
 
 typedef int (*RzCmdCb)(void *user, const char *input);

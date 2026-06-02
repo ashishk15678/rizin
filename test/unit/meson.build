@@ -128,6 +128,7 @@ if get_option('enable_tests')
     'subprocess',
     'syscall',
     'table',
+    'table_view',
     'task',
     'threads',
     'tokens',
